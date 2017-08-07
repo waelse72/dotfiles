@@ -21,7 +21,6 @@ function create_or_remove_links {
     target_dir=$(dirname $target)
 
     if [[ "$file" == *\/* ]]; then 
-      d=$(dirname $target)
       if ! [ -d "$target_dir" ]; then
         echo "creating $target_dir"
         mkdir -p "$target_dir"
