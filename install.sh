@@ -5,12 +5,15 @@
 DOTFILES=$HOME/.dotfiles
 
 FILES="
+.config/fontconfig/conf.d/10-powerline-symbols.conf
+.fonts
 .tern-project
 .vimrc
 .vim/scripts.vim
 .vim/yaml.vim
 .vim/NOTES.md
 .vim/autoload/plug.vim
+.zshrc
 "
 
 function create_or_remove_links {
