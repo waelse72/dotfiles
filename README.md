@@ -45,3 +45,23 @@ update font config cache after installation
 ```
 sudo fc-cache -vf ~/.fonts/
 ```
+
+## javascript debugging
+
+```
+npm install -g vimdebug
+```
+
+start node with `--debug-brk`
+after this type `node-vim-inspector` to launch the debugger
+
+
+
+
+## ubuntu tweaks
+
+provide node as symlink to nodejs
+
+```
+sudo update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
+```
