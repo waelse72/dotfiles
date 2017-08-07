@@ -5,6 +5,7 @@
 DOTFILES=$HOME/.dotfiles
 
 FILES="
+.tern-project
 .vimrc
 .vim/scripts.vim
 .vim/yaml.vim
