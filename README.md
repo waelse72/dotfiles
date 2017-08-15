@@ -29,6 +29,13 @@ sudo apt-get install build-essential cmake python-dev python3-dev
 ./install.py --tern-completer
 ```
 
+## tern_for_vim
+
+```
+cd ~/.vim/plugged/tern_for_vim/
+npm install
+```
+
 ## powerline
 
 ```

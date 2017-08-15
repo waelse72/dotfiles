@@ -13,6 +13,7 @@ FILES="
 .vim/yaml.vim
 .vim/NOTES.md
 .vim/autoload/plug.vim
+.tmux.conf
 .zshrc
 "
 
