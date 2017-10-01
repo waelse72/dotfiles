@@ -10,6 +10,9 @@ FILES="
 .tern-project
 .vimrc
 .vim/scripts.vim
+.vim/colors/thaumaturge.vim
+.vim/colors/smyck.vim
+.vim/colors/bleh.vim
 .vim/yaml.vim
 .vim/NOTES.md
 .vim/autoload/plug.vim
