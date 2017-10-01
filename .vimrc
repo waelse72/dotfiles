@@ -6,6 +6,7 @@ au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType typescript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType docker-compose setlocal ts=2 sts=2 sw=2 expandtab
 
 " ---------------------------------------------------------------------------
 " BEGIN: vim-plug
@@ -22,6 +23,7 @@ Plug 'https://github.com/ternjs/tern_for_vim.git'
 Plug 'https://github.com/leafgarland/typescript-vim.git'
 Plug 'https://github.com/Quramy/tsuquyomi.git'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'chr4/nginx.vim'
 
 " end of initialization of plugin system
 call plug#end()
