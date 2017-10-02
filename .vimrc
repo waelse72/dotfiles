@@ -2,10 +2,15 @@ set nocompatible
 syntax enable
 filetype plugin indent on
 
+" always show status line
+set laststatus=2
+
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType typescript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
+
 autocmd FileType docker-compose setlocal ts=2 sts=2 sw=2 expandtab
 
 colorscheme thaumaturge
@@ -30,6 +35,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'chr4/nginx.vim'
 Plug 'https://github.com/pangloss/vim-javascript.git'
 Plug 'https://github.com/yuttie/hydrangea-vim.git'
+Plug 'itchyny/lightline.vim'
 
 " end of initialization of plugin system
 call plug#end()
@@ -65,13 +71,4 @@ let g:used_javascript_libs = 'underscore,angularjs,angularui,handlebars,chai'
 
 " hydrangea-vim (theme)
 " ---------------------------------------------------------------------------
-
-let g:lightline = {
-      \ 'colorscheme': 'hydrangea',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator':    { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
 
