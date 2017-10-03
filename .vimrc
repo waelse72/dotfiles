@@ -82,6 +82,7 @@ call plug#end()
 " colors
 " ---------------------------------------------------------------------------
 
+let &t_Co=256
 colorscheme hydrangea
 "colorscheme thaumaturge
 "colorscheme smyck
