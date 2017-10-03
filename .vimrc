@@ -82,8 +82,9 @@ call plug#end()
 " colors
 " ---------------------------------------------------------------------------
 
-"colorscheme hydrangea
-colorscheme thaumaturge
+let &t_Co=256
+colorscheme hydrangea
+"colorscheme thaumaturge
 "colorscheme smyck
 
 " ternjs/tern_for_vim
