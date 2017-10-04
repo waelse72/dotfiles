@@ -125,7 +125,7 @@ let g:used_javascript_libs = 'underscore,angularjs,angularui,handlebars,chai'
 " ---------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'hydrangea',
+      \ 'colorscheme': 'solarized',
       \ 'component': {
       \   'readonly': '%{&readonly?"":""}',
       \ },
