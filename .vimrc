@@ -71,6 +71,10 @@ Plug 'https://github.com/yuttie/hydrangea-vim.git'
 " ---------------------
 " A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
+" Solarized Colorscheme for Vim
+" -----------------------------
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+
 
 " end of initialization of plugin system
 call plug#end()
@@ -83,7 +87,9 @@ call plug#end()
 " ---------------------------------------------------------------------------
 
 let &t_Co=256
-colorscheme hydrangea
+set background=dark
+"colorscheme hydrangea
+colorscheme solarized
 "colorscheme thaumaturge
 "colorscheme smyck
 

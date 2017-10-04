@@ -7,6 +7,9 @@ DOTFILES=$HOME/.dotfiles
 FILES="
 .config/fontconfig/conf.d/10-powerline-symbols.conf
 .fonts
+.oh-my-zsh/custom/init-dotfiles.zsh
+.oh-my-zsh/custom/themes/agnoster
+.oh-my-zsh/custom/plugins/zsh-dircolors-solarized
 .tern-project
 .vimrc
 .vim/scripts.vim
@@ -48,9 +51,13 @@ while getopts ":ui" opt; do
   case $opt in
     i)
       create_or_remove_links true 
+      ln -s ~/.dotfiles/.solarized/vim-colors-solarized/colors/solarized.vim ~/.vim/colors >/dev/null 2>&1
+      ln -s ~/.dotfiles/.solarized/vim-colors-solarized/autoload/togglebg.vim ~/.vim/autoload >/dev/null 2>&1
       ;;
     u)
       create_or_remove_links false
+      rm ~/.vim/colors/solarized.vim >/dev/null 2>&1
+      rm ~/.vim/autoload/togglebg.vim >/dev/null 2>&1
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
