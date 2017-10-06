@@ -132,3 +132,6 @@ let g:lightline = {
       \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
+
+" load my key mappings
+source ~/.dotfiles/.vim/my-mappings.vim
