@@ -23,8 +23,45 @@ autocmd FileType docker-compose setlocal ts=2 sts=2 sw=2 expandtab
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+
+" *************************
+" syntax files
+" *************************
+
+" typescript-vim 
+" --------------
+" Syntax file and other settings for TypeScript
+" Checkout Tsuquyomi for omni-completion and other features for TypeScript
+" editing.
+Plug 'https://github.com/leafgarland/typescript-vim.git'
+
+" ekalinin/Dockerfile.vim
+" -----------------------
+" Vim syntax file for Docker's Dockerfile and snippets for snipMate.
 Plug 'https://github.com/ekalinin/Dockerfile.vim.git'
+
+" othree/javascript-libraries-syntax.vim
+" --------------------------------------
+" Syntax file for JavaScript libraries. Supports JavaScript libraries I am
+" using (patches welcome). Should work well with other JavaScript syntax
+" files. SyntaxComplete also works well on all supported languages.
+Plug 'https://github.com/othree/javascript-libraries-syntax.vim'
+
+" chr4/nginx.vim
+" --------------
+" Vim plugin for Nginx
+Plug 'chr4/nginx.vim'
+
+" *************************
+" plugins
+" *************************
+
+" Valloric/YouCompleteMe
+" ----------------------
+" YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine
+" for Vim. It has several completion engines
 Plug 'https://github.com/Valloric/YouCompleteMe.git'
+
 " tern_for_vim.git
 " ----------------
 " This is a Vim plugin that provides Tern-based JavaScript editing support.
@@ -32,48 +69,47 @@ Plug 'https://github.com/Valloric/YouCompleteMe.git'
 " In JavaScript files, the package will hook into omni completion to handle
 " autocompletion, and provide the following commands:
 Plug 'https://github.com/ternjs/tern_for_vim.git'
-" typescript-vim 
-" --------------
-" Syntax file and other settings for TypeScript
-" Checkout Tsuquyomi for omni-completion and other features for TypeScript
-" editing.
-Plug 'https://github.com/leafgarland/typescript-vim.git'
+
 " tsuquyomi
 " ---------
 " A Vim plugin for TypeScript
 Plug 'https://github.com/Quramy/tsuquyomi.git'
+
 " vimproc.vim
 " -----------
 " vimproc is a great asynchronous execution library for Vim. It is a fork of
 " proc.vim by Yukihiro Nakadaira. I added some features and fixed some bugs
 " and I'm maintaining it now.
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-" chr4/nginx.vim
-" --------------
-" Vim plugin for Nginx
-Plug 'chr4/nginx.vim'
+
 " pangloss/vim-javascript.git
 " ---------------------------
 " JavaScript bundle for vim, this bundle provides syntax highlighting and
 " improved indentation.
 Plug 'https://github.com/pangloss/vim-javascript.git'
-" othree/javascript-libraries-syntax.vim
-" --------------------------------------
-" Syntax file for JavaScript libraries. Supports JavaScript libraries I am
-" using (patches welcome). Should work well with other JavaScript syntax
-" files. SyntaxComplete also works well on all supported languages.
-Plug 'https://github.com/othree/javascript-libraries-syntax.vim'
+
+" vim-syntastic/syntastic
+" -----------------------
+"Syntastic is a syntax checking plugin for Vim created by Martin Grenfell. It
+"runs files through external syntax checkers and displays any resulting errors
+"to the user.
+Plug 'vim-syntastic/syntastic'
+
 " Hydrangea theme
 " ---------------
 " This repository includes a color scheme file for Vim.
 Plug 'https://github.com/yuttie/hydrangea-vim.git'
+
 " itchyny/lightline.vim
 " ---------------------
 " A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
+
 " Solarized Colorscheme for Vim
 " -----------------------------
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
+
+
 
 
 " end of initialization of plugin system
@@ -119,6 +155,20 @@ let g:javascript_plugin_flow = 1
 
 " You can use g:used_javascript_libs to setup used libraries, ex:
 let g:used_javascript_libs = 'underscore,angularjs,angularui,handlebars,chai'
+
+
+" vim-syntastic/syntastic
+" ---------------------------------------------------------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 
 " hydrangea-vim (theme)
