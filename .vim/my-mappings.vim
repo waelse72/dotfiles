@@ -6,7 +6,7 @@ map <leader>b ci{
 " change inside square brackets
 map <leader>s ci[
 
-"map <F5> bi{<Esc>ea}<Esc>
+map <leader>mp bi"<Esc>ea"<Esc>
 
 " (test)
 "

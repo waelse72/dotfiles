@@ -109,7 +109,16 @@ Plug 'itchyny/lightline.vim'
 " -----------------------------
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 
+" test.vim
+" ---------------------------
+" A Vim wrapper for running tests on different granularities.
+Plug 'janko-m/vim-test'
 
+" vim-terraform
+" ----------------------------
+"  This plugin adds a :Terraform command that runs terraform, with tab
+"  completion of subcommands. 
+Plug 'https://github.com/hashivim/vim-terraform'
 
 
 " end of initialization of plugin system
@@ -165,10 +174,11 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+" ugly: should be just eslint. I don't want to install eslint globally
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+let g:syntastic_javascript_eslint_exe = 'npx eslint "$@"'
 
 
 " hydrangea-vim (theme)
