@@ -9,6 +9,7 @@ au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType typescript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType docker-compose setlocal ts=2 sts=2 sw=2 expandtab
@@ -128,10 +129,29 @@ call plug#end()
 " END: vim-plug
 " ---------------------------------------------------------------------------
 
+" lightline settings
+" ---------------------------------------------------------------------------
+
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator':    { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ }
+
+
 " colors
 " ---------------------------------------------------------------------------
 
 let &t_Co=256
+"let g:solarized_termcolors=16
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+
+"fix for iterm2 greyish background
+let g:solarized_termtrans = 1
 set background=dark
 "colorscheme hydrangea
 colorscheme solarized
@@ -179,19 +199,6 @@ let g:syntastic_check_on_wq = 0
 " ugly: should be just eslint. I don't want to install eslint globally
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npx eslint "$@"'
-
-
-" hydrangea-vim (theme)
-" ---------------------------------------------------------------------------
-
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator':    { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
 
 " load my key mappings
 source ~/.dotfiles/.vim/my-mappings.vim
