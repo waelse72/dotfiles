@@ -72,3 +72,12 @@ provide node as symlink to nodejs
 ```
 sudo update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 ```
+
+## iTerm2 Tweaks
+
+If you set ```g:solarized_visibility='low'``` and you do not see the non white space chars you should try to increase the contrast in iTerm's color settings.
+
+
+### iTerm2 colorschemes
+
+see: https://github.com/mbadolato/iTerm2-Color-Schemes

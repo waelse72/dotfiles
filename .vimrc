@@ -4,6 +4,10 @@ filetype plugin indent on
 
 " always show status line
 set laststatus=2
+" show special characters
+set showbreak=↪\
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set list
 
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -121,6 +125,36 @@ Plug 'janko-m/vim-test'
 "  completion of subcommands. 
 Plug 'https://github.com/hashivim/vim-terraform'
 
+" vim-go
+" ---------------------------
+" GO support for vim
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+" tlib
+" -------------
+" Some utility functions for VIM
+" Plug 'https://github.com/tomtom/tlib_vim.git'
+
+" vim-addon-mw-utils
+" vim: interpret a file by function and cache file automatically
+" Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
+
+" vim.snipmate
+"--------------
+" Plug 'https://github.com/garbas/vim-snipmate'
+
+" utilsnips
+" -----------------
+" UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
+Plug 'https://github.com/SirVer/ultisnips'
+
+" vim-snippets
+" -------------
+" a collection of vim snippets for snipmate
+Plug 'https://github.com/honza/vim-snippets'
+
+
+Plug 'https://github.com/lifepillar/vim-solarized8.git'
 
 " tcomment_vim
 " tcomment provides easy to use, file-type sensible comments for Vim. It 
@@ -157,12 +191,26 @@ let &t_Co=256
 
 "fix for iterm2 greyish background
 let g:solarized_termtrans = 1
+if $OSX
+	let g:solarized_termtrans = 1
+	let g:solarized_visibility='low'
+	let g:solarized_termcolors=16
+endif
 set background=dark
 "colorscheme hydrangea
 colorscheme solarized
 "colorscheme thaumaturge
 "colorscheme smyck
 
+" Enable italic text
+" see: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#comment-1818205274
+" highlight Comment cterm=italic
+
+" fix colors of QuickFixLine (type :highlight to see all color mappings)
+"highlight QuickFixLine term=reverse cterm=reverse ctermfg=0 ctermbg=226 guifg=Black guibg=Yellow 
+if $OSX
+	highlight QuickFixLine term=bold cterm=bold ctermfg=1 guifg=Red 
+endif
 " ternjs/tern_for_vim
 " ---------------------------------------------------------------------------
 
@@ -205,6 +253,26 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npx eslint "$@"'
 
+
+" utilsnips
+" -----------
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<nop>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+" hydrangea-vim (theme)
+" ---------------------------------------------------------------------------
+
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator':    { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ }
 
 " load my key mappings
 source ~/.dotfiles/.vim/my-mappings.vim

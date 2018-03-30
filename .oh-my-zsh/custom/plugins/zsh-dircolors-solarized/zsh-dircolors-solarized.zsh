@@ -1,4 +1,10 @@
 # get the directory from when we're sourced
+if [ $OSX ]; then
+    DIRCOLORS_CMD=gdircolors
+else
+    DIRCOLORS_CMD=dircolors
+fi
+
 _ZSH_DIRCOLORS_SOLARIZED_DIR=${ZSH_DIRCOLORS_SOLARIZED_DIR:-${${0:A}:h}/dircolors-solarized}
 if [ -z "$_ZSH_DIRCOLORS_SOLARIZED_CONF" ]; then
     _ZSH_DIRCOLORS_SOLARIZED_CONF=$HOME/.zsh-dircolors.config
@@ -19,7 +25,7 @@ function setupsolarized ()
 
     local _SOLARIZED_THEME_PATH="$_ZSH_DIRCOLORS_SOLARIZED_DIR/${_SOLARIZED_THEME}"
     if [[ -f $_SOLARIZED_THEME_PATH ]]; then
-        eval $(dircolors $_SOLARIZED_THEME_PATH)
+        eval $($DIRCOLORS_CMD $_SOLARIZED_THEME_PATH)
     else
         echo "Could not load theme $_SOLARIZED_THEME_PATH"
     fi

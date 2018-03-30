@@ -8,7 +8,7 @@ map <leader>s ci[
 
 map <leader>mp bi"<Esc>ea"<Esc>
 
-" press 1 to paste a whitespace and the contents of the register to the end of the line
+" press C-1 to paste a whitespace and the contents of the register to the end of the line
 nnoremap <C-1> A <esc>p
 
 " disable arrow keys!
