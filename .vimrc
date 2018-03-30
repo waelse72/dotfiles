@@ -122,6 +122,11 @@ Plug 'janko-m/vim-test'
 Plug 'https://github.com/hashivim/vim-terraform'
 
 
+" tcomment_vim
+" tcomment provides easy to use, file-type sensible comments for Vim. It 
+" can handle embedded syntax.
+Plug 'https://github.com/tomtom/tcomment_vim'
+
 " end of initialization of plugin system
 call plug#end()
 
@@ -199,6 +204,7 @@ let g:syntastic_check_on_wq = 0
 " ugly: should be just eslint. I don't want to install eslint globally
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npx eslint "$@"'
+
 
 " load my key mappings
 source ~/.dotfiles/.vim/my-mappings.vim
