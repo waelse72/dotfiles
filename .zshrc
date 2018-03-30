@@ -8,9 +8,9 @@ export ZSH=$HOME/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 #ZSH_THEME="junkfood"
-ZSH_THEME="kphoen"
+#ZSH_THEME="kphoen"
 #ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -55,7 +55,7 @@ ZSH_THEME="kphoen"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws node docker docker-compose npm tmux rvm zsh-dircolors-solarized)
+plugins=(zsh-detect-os git aws node docker docker-compose npm tmux rvm zsh-dircolors-solarized zsh-autosuggestions osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,6 +65,8 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -88,4 +90,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+if [[ "$OSX" == "1" ]]
+then
+    export PATH=$PATH:$HOME/Library/Python/3.6/bin:$PATH
+    source $HOME/Library/Python/3.6/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+elif [[ "$LINUX" == "1" ]]
+then
+    source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi

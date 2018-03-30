@@ -10,6 +10,8 @@ FILES="
 .oh-my-zsh/custom/init-dotfiles.zsh
 .oh-my-zsh/custom/themes/agnoster
 .oh-my-zsh/custom/plugins/zsh-dircolors-solarized
+.oh-my-zsh/custom/plugins/zsh-autosuggestions
+.oh-my-zsh/custom/plugins/zsh-detect-os
 .tern-project
 .vimrc
 .vim/scripts.vim
