@@ -92,13 +92,16 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ "$ENABLE_POWERLINE" == "1" ]]
+if [[ "$OSX" == "1" ]]
 then
-  if [[ "$OSX" == "1" ]]
+  export PATH=$PATH:$HOME/Library/Python/3.6/bin
+  if [[ "$ENABLE_POWERLINE" == "1" ]]
   then
-    export PATH=$PATH:$HOME/Library/Python/3.6/bin:$PATH
     source $HOME/Library/Python/3.6/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-  elif [[ "$LINUX" == "1" ]]
+  fi
+elif [[ "$LINUX" == "1" ]]
+then
+  if [[ "$ENABLE_POWERLINE" == "1" ]]
   then
     source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
   fi
