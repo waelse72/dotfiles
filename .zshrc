@@ -8,9 +8,9 @@ export ZSH=$HOME/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 #ZSH_THEME="junkfood"
-#ZSH_THEME="kphoen"
+ZSH_THEME="kphoen"
 #ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -63,6 +63,8 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+ENABLE_POWERLINE=0
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -90,11 +92,14 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ "$OSX" == "1" ]]
+if [[ "$ENABLE_POWERLINE" == "1" ]]
 then
+  if [[ "$OSX" == "1" ]]
+  then
     export PATH=$PATH:$HOME/Library/Python/3.6/bin:$PATH
     source $HOME/Library/Python/3.6/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-elif [[ "$LINUX" == "1" ]]
-then
+  elif [[ "$LINUX" == "1" ]]
+  then
     source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+  fi
 fi

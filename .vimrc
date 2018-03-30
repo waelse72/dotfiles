@@ -12,6 +12,7 @@ set list
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType zsh setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType typescript setlocal ts=4 sts=4 sw=4 expandtab
