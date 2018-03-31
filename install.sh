@@ -12,6 +12,7 @@ FILES="
 .oh-my-zsh/custom/plugins/zsh-dircolors-solarized
 .oh-my-zsh/custom/plugins/zsh-autosuggestions
 .oh-my-zsh/custom/plugins/zsh-detect-os
+.oh-my-zsh/custom/themes/powerlevel9k
 .tern-project
 .vimrc
 .vim/scripts.vim

@@ -10,8 +10,9 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="junkfood"
-ZSH_THEME="kphoen"
-#ZSH_THEME="ys"
+
+#ZSH_THEME="kphoen"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
