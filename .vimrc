@@ -169,7 +169,7 @@ call plug#end()
 
 " colors
 " ---------------------------------------------------------------------------
-let g:solarized_visibility='normal' " can also be set to low or high
+let g:solarized_visibility="low" " can also be set to normal or high
 if b:solarized_scheme_type == "solarized8"
   let &t_Co=256
   let g:solarized_use16 = 1
