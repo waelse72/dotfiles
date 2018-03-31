@@ -9,10 +9,16 @@ set showbreak=↪\
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 set list
 
+
+" color setup
+let b:solarized_scheme_type = "solarized8"
+let b:solarized_mode = "dark"
+
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType zsh setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType typescript setlocal ts=4 sts=4 sw=4 expandtab
@@ -107,9 +113,12 @@ Plug 'vim-syntastic/syntastic'
 Plug 'https://github.com/yuttie/hydrangea-vim.git'
 
 " itchyny/lightline.vim
-" ---------------------
-" A light and configurable statusline/tabline plugin for Vim
+" -----------------------------------------------------------------------------
+" A light and configurable statusline/tabline plugin for Vim.
+" vim-quack-solarized is a solarized color scheme for vim which seem to work
+" better than the default scheme packaged with lightline 
 Plug 'itchyny/lightline.vim'
+Plug 'https://github.com/pearofducks/vim-quack-lightline'
 
 " Solarized Colorscheme for Vim
 " -----------------------------
@@ -131,19 +140,6 @@ Plug 'https://github.com/hashivim/vim-terraform'
 " GO support for vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
-" tlib
-" -------------
-" Some utility functions for VIM
-" Plug 'https://github.com/tomtom/tlib_vim.git'
-
-" vim-addon-mw-utils
-" vim: interpret a file by function and cache file automatically
-" Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
-
-" vim.snipmate
-"--------------
-" Plug 'https://github.com/garbas/vim-snipmate'
-
 " utilsnips
 " -----------------
 " UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
@@ -162,6 +158,8 @@ Plug 'https://github.com/lifepillar/vim-solarized8.git'
 " can handle embedded syntax.
 Plug 'https://github.com/tomtom/tcomment_vim'
 
+
+
 " end of initialization of plugin system
 call plug#end()
 
@@ -169,11 +167,50 @@ call plug#end()
 " END: vim-plug
 " ---------------------------------------------------------------------------
 
+" colors
+" ---------------------------------------------------------------------------
+let g:solarized_visibility='normal' " can also be set to low or high
+if b:solarized_scheme_type == "solarized8"
+  let &t_Co=256
+  let g:solarized_use16 = 1
+  let g:solarized_statusline = "normal"
+  if $OSX
+    "fix for iterm2 greyish background
+    let g:solarized_termtrans = 1
+  endif
+elseif b:solarized_scheme_type == "solarized"
+
+  let g:solarized_termcolors=16
+endif
+
+if b:solarized_mode == "dark"
+  set background=dark
+elseif b:solarized_mode == "light"
+  set background=light
+endif
+
+if b:solarized_scheme_type == "solarized8"
+  colorscheme solarized8
+elseif b:solarized_scheme_type == "solarized"
+  colorscheme solarized
+endif
+
+
+" Enable italic text
+" see: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#comment-1818205274
+" highlight Comment cterm=italic
+
+" fix colors of QuickFixLine (type :highlight to see all color mappings)
+"highlight QuickFixLine term=reverse cterm=reverse ctermfg=0 ctermbg=226 guifg=Black guibg=Yellow
+if $OSX
+  highlight QuickFixLine term=bold cterm=bold ctermfg=1 guifg=Red 
+endif
+
 " lightline settings
 " ---------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'quack',
       \ 'component': {
       \   'readonly': '%{&readonly?"":""}',
       \ },
@@ -182,36 +219,6 @@ let g:lightline = {
       \ }
 
 
-" colors
-" ---------------------------------------------------------------------------
-
-let &t_Co=256
-"let g:solarized_termcolors=16
-"let g:solarized_visibility = "high"
-"let g:solarized_contrast = "high"
-
-"fix for iterm2 greyish background
-let g:solarized_termtrans = 1
-if $OSX
-	let g:solarized_termtrans = 1
-	let g:solarized_visibility='low'
-	let g:solarized_termcolors=16
-endif
-set background=dark
-"colorscheme hydrangea
-colorscheme solarized
-"colorscheme thaumaturge
-"colorscheme smyck
-
-" Enable italic text
-" see: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#comment-1818205274
-" highlight Comment cterm=italic
-
-" fix colors of QuickFixLine (type :highlight to see all color mappings)
-"highlight QuickFixLine term=reverse cterm=reverse ctermfg=0 ctermbg=226 guifg=Black guibg=Yellow 
-if $OSX
-	highlight QuickFixLine term=bold cterm=bold ctermfg=1 guifg=Red 
-endif
 " ternjs/tern_for_vim
 " ---------------------------------------------------------------------------
 
@@ -262,18 +269,6 @@ let g:UltiSnipsExpandTrigger="<nop>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-
-" hydrangea-vim (theme)
-" ---------------------------------------------------------------------------
-
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator':    { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
 
 " load my key mappings
 source ~/.dotfiles/.vim/my-mappings.vim
