@@ -66,6 +66,8 @@ source $ZSH/oh-my-zsh.sh
 
 ENABLE_POWERLINE=0
 
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
