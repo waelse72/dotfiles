@@ -12,11 +12,13 @@ function down {
   git push -u origin master
 }
 
-if [[ "$1" == "up" ]]; then
+if [[ $1 = "up" ]]; then
   echo "update"
-  up()
-elif [[ "$1" == "down" ]]; then
+  up
+elif [[ $1 = "down" ]]; then
   echo "down"
-  down()
+  down
+else
+  echo "usage: $0 <up|down>"
 fi
 
