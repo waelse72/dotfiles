@@ -2,6 +2,8 @@ set nocompatible
 syntax enable
 filetype plugin indent on
 
+"set omnifunc=syntaxcomplete#Complete
+
 " always show status line
 set laststatus=2
 " show special characters
@@ -68,6 +70,27 @@ Plug 'chr4/nginx.vim'
 " *************************
 " plugins
 " *************************
+
+" vim-pandoc
+" --------------
+" vim-pandoc provides facilities to integrate Vim with the pandoc document
+" converter and work with documents written in its markdown variant (although
+" textile documents are also supported).
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+" vim-surround
+" --------------
+" Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML
+" tags, and more. The plugin provides mappings to easily delete, change and
+" add such surroundings in pairs.
+Plug 'https://github.com/tpope/vim-surround'
+
+" nerdcommenter
+" --------------
+" Comment functions so powerful—no comment necessary.
+Plug 'https://github.com/scrooloose/nerdcommenter'
+
 
 " Valloric/YouCompleteMe
 " ----------------------
@@ -154,12 +177,6 @@ Plug 'https://github.com/honza/vim-snippets'
 
 Plug 'https://github.com/lifepillar/vim-solarized8.git'
 
-" tcomment_vim
-" tcomment provides easy to use, file-type sensible comments for Vim. It 
-" can handle embedded syntax.
-Plug 'https://github.com/tomtom/tcomment_vim'
-
-
 
 " end of initialization of plugin system
 call plug#end()
@@ -196,6 +213,7 @@ elseif b:solarized_scheme_type == "solarized"
   colorscheme solarized
 endif
 
+call togglebg#map("<F5>")
 
 " Enable italic text
 " see: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#comment-1818205274
@@ -219,6 +237,27 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
 
+" vim-pandoc
+" ---------------------------------------------------------------------------
+
+let g:pandoc#syntax#conceal#use = 1
+let g:pandoc#folding#fdc = 0
+let g:pandoc#syntax#conceal#urls = 1
+let g:pandoc#syntax#codeblocks#embeds#langs = ["ruby", "literatehaskell=lhaskell", "bash=sh"]
+
+
+
+" nerdcommenter
+" ---------------------------------------------------------------------------
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
 
 " ternjs/tern_for_vim
 " ---------------------------------------------------------------------------

@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+MODE=$1
+
+if [[ "$MODE" == "dark" ]]; then
+  unset POWERLEVEL9K_COLOR_SCHEME
+  source $HOME/.zshrc
+elif [[ "$MODE" == "light" ]]; then
+  export POWERLEVEL9K_COLOR_SCHEME='light'
+elif; then
+  echo "usage: $0 <dark|light>"
+  exit 1
+fi
+
+source $HOME/.zshrc
+
+

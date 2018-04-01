@@ -1,15 +1,31 @@
-let mapleader = "-"
+let mapleader = "_"
 " change inside parentheses
-map <leader>p ci(
+map <leader>cp ci(
 " change inside braces
-map <leader>b ci{
+map <leader>cb ci{
 " change inside square brackets
-map <leader>s ci[
-
+map <leader>cs ci[
+" surround word with double quotes
 map <leader>mp bi"<Esc>ea"<Esc>
 
-" press C-1 to paste a whitespace and the contents of the register to the end of the line
-nnoremap <C-1> A <esc>p
+
+nnoremap oo o<Esc>k
+nnoremap OO O<Esc>j
+" press Ap to paste a whitespace and the contents of the register at the end of the line
+nnoremap <Leader>p A <esc>p
+" insert space at cursor
+nnoremap <Leader>s i <esc>
+nnoremap <Leader><Space> i <esc>
+
+" Remove all trailing whitespace by pressing _w
+" see: https://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
+nnoremap <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" re-indent whole file
+nnoremap <Leader>i gg=G
+
+" jump to tag
+noremap <Leader>t <C-]>
+
 
 " disable arrow keys!
 inoremap  <Up>     <NOP>
@@ -27,18 +43,18 @@ inoremap <Del> <Nop>
 
 
 "if has('mac') && ($TERM == 'xterm-256color' || $TERM == 'screen-256color')
-  map <Esc>OP <F1>
-  map <Esc>OQ <F2>
-  map <Esc>OR <F3>
-  map <Esc>OS <F4>
-  map <Esc>[16~ <F5>
-  map <Esc>[17~ <F6>
-  map <Esc>[18~ <F7>
-  map <Esc>[19~ <F8>
-  map <Esc>[20~ <F9>
-  map <Esc>[21~ <F10>
-  map <Esc>[23~ <F11>
-  map <Esc>[24~ <F12>
+map <Esc>OP <F1>
+map <Esc>OQ <F2>
+map <Esc>OR <F3>
+map <Esc>OS <F4>
+map <Esc>[16~ <F5>
+map <Esc>[17~ <F6>
+map <Esc>[18~ <F7>
+map <Esc>[19~ <F8>
+map <Esc>[20~ <F9>
+map <Esc>[21~ <F10>
+map <Esc>[23~ <F11>
+map <Esc>[24~ <F12>
 "endif
 
 

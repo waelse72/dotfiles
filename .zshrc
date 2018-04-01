@@ -1,8 +1,36 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_COLOR_SCHEME=${POWERLEVEL9K_COLOR_SCHEME:-dark} 
+POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs battery load ssh public_ip time)
+
+# POWERLEVEL9K_TIME_FOREGROUND='black'
+# POWERLEVEL9K_TIME_BACKGROUND='white'
+# POWERLEVEL9K_OS_ICON_FOREGROUND="black"
+# POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+# POWERLEVEL9K_DIR_HOME_FOREGROUND="black"
+# POWERLEVEL9K_DIR_HOME_BACKGROUND="white"
+# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="black"
+# POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="white"
+# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="black"
+# POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="white"
+# POWERLEVEL9K_VCS_FOREGROUND="black"
+# POWERLEVEL9K_VCS_BACKGROUND="white"
+# POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
+# POWERLEVEL9K_VCS_CLEAN_BACKGROUND='white'
+# POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
+# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='white'
+# POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
+# POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='white'
+#
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -66,7 +94,8 @@ source $ZSH/oh-my-zsh.sh
 
 ENABLE_POWERLINE=0
 
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

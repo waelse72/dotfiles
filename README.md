@@ -1,26 +1,52 @@
 # dotfiles
 
+## Cheatsheet
+
+| area | command      | description                                           |
+|------|--------------|-------------------------------------------------------|
+| zsh  | bglight      | set light background                                  |
+| zsh  | bgdark       | set dark background                                   |
+| vim  | ci'          | change text surrounded by                             |
+| vim  | `lD` or `ld$`| delete until end of line, exclusive of current letter |
+
+... more to come
+
+
+## Install Instructions
 
 Install: clone and run 
 
 ```
 ./install.sh -i
 ```
+### zsh
 
-## vim
+#### powerlevel9k
 
-### install plugins
+YOU HAVE TO DEFINE SETTINGS BEFORE SETTING YOUR THEME in `.zshrc`
+
+```bash
+POWERLEVEL9K_MODE='awesome-patched'
+# ... more config stuff
+
+# activate theme
+ZSH_THEME="powerlevel9k/powerlevel9k"
+```
+
+### vim
+
+#### install plugins
 
 ```
 :PlugInst
 ```
 
-### setup YouCompleteMe
+#### setup YouCompleteMe
 
 see https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64 for detailed instrucions
 
 
-```
+```bash
 # optional: install node and npm if not already done
 sudo apt-get install npm nodejs
 
@@ -29,43 +55,15 @@ sudo apt-get install build-essential cmake python-dev python3-dev
 ./install.py --tern-completer
 ```
 
-## tern_for_vim
+#### tern_for_vim
 
 ```
 cd ~/.vim/plugged/tern_for_vim/
 npm install
 ```
 
-## powerline
 
-```
-apt-get install socat python-psutil python-pygit2 python-bzrlib x11-xserver-utils
-pip install pyuv i3ipc
-# install powerline
-pip install powerline-status
-```
-
-## fontconfig
-
-update font config cache after installation
-
-```
-sudo fc-cache -vf ~/.fonts/
-```
-
-## javascript debugging
-
-```
-npm install -g vimdebug
-```
-
-start node with `--debug-brk`
-after this type `node-vim-inspector` to launch the debugger
-
-
-
-
-## ubuntu tweaks
+### ubuntu tweaks
 
 provide node as symlink to nodejs
 
@@ -73,17 +71,17 @@ provide node as symlink to nodejs
 sudo update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 ```
 
-## iTerm2 Tweaks
+### iTerm2 Tweaks
 
 If you set ```g:solarized_visibility='low'``` and you do not see the non white space chars you should try to increase the contrast in iTerm's color settings.
 
-### Fix dircolors
+#### Fix dircolors
 
 see: http://www.mseri.me/on-iterm2-and-solarized-dark/
 go to iTerm -> Preferences -> Profiles -> <our profile> -> Text -> uncheck the Text Rendering option Draw bold text in bright colors
 
 
-### iTerm2 colorschemes
+#### iTerm2 colorschemes
 
 see: https://github.com/mbadolato/iTerm2-Color-Schemes
 

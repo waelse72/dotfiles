@@ -3,13 +3,21 @@ ci' - edit text surrounded by '
 
 :%normal 2x - delete first two characters for each line (%: match all lines; normal: execute normal mode commands typed on the cmd line; 2x: delete 2 chars)
 
-<<<<<<< HEAD
 :mes - show vim messages
 
 ## append space and text at the end of the line
 
 just hit 1
 `nnoremap 1 A <esc>p`
+
+## delete untile end of line, exclusive of current letter 
+(try after exiting insert mode)
+
+`lD` or `ld$`
+
+## Format the lines that {motion} moves over.
+
+gq
 
 ## delete until next char
 
@@ -27,9 +35,8 @@ or including /
 
 shows the current mapping of <C-]>
 `:verbose nmap <C-]>`
-=======
+
 :highlight - show current highlight settings
->>>>>>> macbbook
 
 
 insert spaces at beginning

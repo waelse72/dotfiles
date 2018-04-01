@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+
+
+function up {
+  git submodule init
+  git submodule update --recursive --remote
+  git pull origin master
+}
+
+function down {
+  git push -u origin master
+}
+
+if [[ "$1" == "up" ]]; then
+  echo "update"
+  up()
+elif [[ "$1" == "down" ]]; then
+  echo "down"
+  down()
+fi
+

@@ -13,6 +13,8 @@ FILES="
 .oh-my-zsh/custom/plugins/zsh-autosuggestions
 .oh-my-zsh/custom/plugins/zsh-detect-os
 .oh-my-zsh/custom/themes/powerlevel9k
+.oh-my-zsh/custom/aliases.zsh
+.config/powerline
 .tern-project
 .vimrc
 .vim/scripts.vim
