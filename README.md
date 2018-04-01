@@ -91,7 +91,7 @@ see: https://github.com/mbadolato/iTerm2-Color-Schemes
 ## Resources
 
 * https://github.com/chriskempson/base16-shell
- * A shell script to change your shell's default ANSI colors but most
+** A shell script to change your shell's default ANSI colors but most
    importantly, colors 17 to 21 of your shell's 256 colorspace (if supported by
    your terminal).
 * https://gist.github.com/XVilka/8346728
