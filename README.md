@@ -95,8 +95,8 @@ see: https://github.com/mbadolato/iTerm2-Color-Schemes
    importantly, colors 17 to 21 of your shell's 256 colorspace (if supported by
    your terminal).
 * https://gist.github.com/XVilka/8346728
- * True Colour (16 million colours) support in various terminal applications
+  * True Colour (16 million colours) support in various terminal applications
    and terminals
 * https://github.com/lifepillar/vim-solarized8
- * Optimized Solarized colorschemes. Best served with true-color terminals!
+  * Optimized Solarized colorschemes. Best served with true-color terminals!
 
