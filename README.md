@@ -73,12 +73,14 @@ sudo update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
 ### iTerm2 Tweaks
 
-If you set ```g:solarized_visibility='low'``` and you do not see the non white space chars you should try to increase the contrast in iTerm's color settings.
+If you set `g:solarized_visibility='low'` and you do not see the non white
+space chars you should try to increase the contrast in iTerm's color settings.
 
 #### Fix dircolors
 
 see: http://www.mseri.me/on-iterm2-and-solarized-dark/
-go to iTerm -> Preferences -> Profiles -> <our profile> -> Text -> uncheck the Text Rendering option Draw bold text in bright colors
+go to iTerm -> Preferences -> Profiles -> <our profile> -> Text -> uncheck the
+Text Rendering option Draw bold text in bright colors
 
 
 #### iTerm2 colorschemes
@@ -89,9 +91,12 @@ see: https://github.com/mbadolato/iTerm2-Color-Schemes
 ## Resources
 
 * https://github.com/chriskempson/base16-shell
- * A shell script to change your shell's default ANSI colors but most importantly, colors 17 to 21 of your shell's 256 colorspace (if supported by your terminal).
+ * A shell script to change your shell's default ANSI colors but most
+   importantly, colors 17 to 21 of your shell's 256 colorspace (if supported by
+   your terminal).
 * https://gist.github.com/XVilka/8346728
- * True Colour (16 million colours) support in various terminal applications and terminals
+ * True Colour (16 million colours) support in various terminal applications
+   and terminals
 * https://github.com/lifepillar/vim-solarized8
  * Optimized Solarized colorschemes. Best served with true-color terminals!
 
