@@ -2,21 +2,19 @@
 
 
 
-function up {
+function down {
   git submodule init
   git submodule update --recursive --remote
   git pull origin master
 }
 
-function down {
+function up {
   git push -u origin master
 }
 
 if [[ $1 = "up" ]]; then
-  echo "update"
   up
 elif [[ $1 = "down" ]]; then
-  echo "down"
   down
 else
   echo "usage: $0 <up|down>"
