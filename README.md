@@ -6,13 +6,40 @@
 |------|--------------|-------------------------------------------------------|
 | zsh  | bglight      | set light background                                  |
 | zsh  | bgdark       | set dark background                                   |
-| vim  | ci'          | change text surrounded by                             |
+| vim  | `ci'`        | change text surrounded by '                           |
 | vim  | `lD` or `ld$`| delete until end of line, exclusive of current letter |
+| vim  | `ys<obj>"`   | surround text object with "                           |
+
+## Vim Movements
+
+| move                  | description                                         |
+|-----------------------|-----------------------------------------------------|
+| `f"`, `t"`            | forward to char "                                   |
+| `F"`, `T"`            | backward to char "                                  |
+
+## Vim Text Objects
+
+| object                | description                                         |
+|-----------------------|-----------------------------------------------------|
+| `aw`, `aW`            | a word, including spaces                            |
+| `iw`, `iW`            | inner word, excluding spaces                        |
+| `as`                  | a sentence                                          |
+| `is`                  | inner sentence                                      |
+| `ap`                  | a paragraph                                         |
+| `ip`                  | inner paragraph                                     |
+| `a]`, `a[`            | a block                                             |
+| `i]`, `i[`            | inner block                                         |
+| `a(`, `a)`, `ab`      | a block                                             |
+| `i(`, `i)`, `ib`      | inner block                                         |
 
 ... more to come
 
 
 ## Install Instructions
+
+before you start you must install a patched font (awesome)
+see: https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched
+
 
 Install: clone and run 
 
