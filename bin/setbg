@@ -5,12 +5,12 @@ MODE=$1
 if [[ "$MODE" == "dark" ]]; then
   unset POWERLEVEL9K_COLOR_SCHEME
   rm $HOME/.config/powerline/colorschemes/tmux/solarized.json
-  ln -s $HOME/.config/powerline/colorschemes/tmux/solarized_dark.json $HOME/.config/powerline/colorschemes/tmux/solarized.json
+  ln -s $HOME/.config/powerline/colorschemes/tmux/solarized_dark.json $HOME/.config/powerline/colorschemes/tmux/solarized.json >/dev/null 2>&1
   source $HOME/.zshrc
 elif [[ "$MODE" == "light" ]]; then
   export POWERLEVEL9K_COLOR_SCHEME='light'
   rm $HOME/.config/powerline/colorschemes/tmux/solarized.json
-  ln -s $HOME/.config/powerline/colorschemes/tmux/solarized_light.json $HOME/.config/powerline/colorschemes/tmux/solarized.json
+  ln -s $HOME/.config/powerline/colorschemes/tmux/solarized_light.json $HOME/.config/powerline/colorschemes/tmux/solarized.json >/dev/null 2>&1
 elif; then
   echo "usage: $0 <dark|light>"
   exit 1
