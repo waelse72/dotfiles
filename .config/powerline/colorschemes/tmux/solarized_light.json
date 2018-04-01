@@ -1,0 +1,17 @@
+{
+    "groups": {
+        "background":           {"bg": "solarized:base2"},
+        "active_window_status": {"bg": "solarized:base2"},
+        "window_status":        {"bg": "solarized:base2"},
+        "activity_status":      {"bg": "solarized:base2"},
+        "bell_status":          {"bg": "solarized:base2"},
+        "time":          {"bg": "solarized:base2"},
+        "time:divider":          {"bg": "solarized:base2"},
+        "date:divider":          {"bg": "solarized:base2"},
+        "date":          {"bg": "solarized:base2"},
+        "system_load:divider":          {"bg": "solarized:base2"},
+        "system_load":          {"bg": "solarized:base2"},
+        "window":               {"bg": "solarized:base2"},
+        "window:divider":       {"bg": "solarized:base2"}
+    }
+}

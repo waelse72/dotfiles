@@ -61,6 +61,14 @@ map <Esc>[24~ <F12>
 map <F2> :tabe ~/.vim/NOTES.md<CR>
 map <F3> :so ~/.vimrc<CR>
 
+" Cycle through buffers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" append line at the end of the file
+nmap  Go
+
+
 " (test)
 "
 " [ a,b, c]

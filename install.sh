@@ -6,6 +6,7 @@ DOTFILES=$HOME/.dotfiles
 
 FILES="
 .config/fontconfig/conf.d/10-powerline-symbols.conf
+.config/base16-shell
 .fonts
 .oh-my-zsh/custom/init-dotfiles.zsh
 .oh-my-zsh/custom/themes/agnoster

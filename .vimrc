@@ -1,20 +1,24 @@
-set nocompatible
-syntax enable
-filetype plugin indent on
-
-"set omnifunc=syntaxcomplete#Complete
-
+" General
 " always show status line
 set laststatus=2
-" show special characters
-set showbreak=↪\
-set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
-set list
+set visualbell                             " don't beep
+set noerrorbells                           " don't beep
+set novb                                   " no flashing of screen
+set nocompatible
+set undofile                               " keep a undo file
+set undodir=~/.vim/undo
 
+" Editing
+set expandtab                              " expand tabs to spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+syntax enable
+filetype plugin indent on
+set wrap linebreak nolist                  " line wrapping
+set breakindent                            " indent wrapped lines
+"set omnifunc=syntaxcomplete#Complete
 
-" color setup
-let b:solarized_scheme_type = "solarized8"
-let b:solarized_mode = "dark"
 
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -27,6 +31,25 @@ autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType typescript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType docker-compose setlocal ts=2 sts=2 sw=2 expandtab
+
+
+" Spelling
+autocmd FileType gitcommit setlocal spell        " spell check for git commit messages
+autocmd BufRead,BufNewFile *.md setlocal spell   " spell check for markdown files
+set complete+=kspell                             " autocomplete words
+
+" Appearance
+
+" show special characters
+set showbreak=↪\
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set list
+
+set colorcolumn=80                         " highlight 80 char column
+
+" color setup
+let b:solarized_scheme_type = "solarized8"
+let b:solarized_mode = "light"
 
 
 " ---------------------------------------------------------------------------
