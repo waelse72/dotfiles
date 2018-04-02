@@ -9,8 +9,8 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME=${POWERLEVEL9K_COLOR_SCHEME:-dark} 
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir newline vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs battery load ssh public_ip time)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir newline vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs battery load ssh public_ip time)
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u2570\ue1fd "
 
 POWERLEVEL9K_OS_ICON_BACKGROUND="clear"
@@ -67,8 +67,8 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="yellow"
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="clear"
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="249"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S} \UE12E"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('status' 'os_icon' 'todo' 'context' 'dir' 'newline' 'vcs')
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('nvm' 'rvm' 'load' 'ram_joined' 'battery' 'time')
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('status' 'os_icon' 'ssh' 'context' 'dir' 'newline' 'vcs')
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('nvm' 'load' 'ram_joined' 'battery' 'time')
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
