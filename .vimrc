@@ -51,8 +51,13 @@ set colorcolumn=80                         " highlight 80 char column
 
 " color setup
 let b:solarized_scheme_type = "solarized8"
-let b:solarized_mode = "light"
-
+if $VIM_SOLARIZED_MODE == "light"
+  let b:solarized_mode = "light"
+elseif $VIM_SOLARIZED_MODE == "dark"
+  let b:solarized_mode = "dark"
+else 
+  let b:solarized_mode = "dark"
+endif
 
 " ---------------------------------------------------------------------------
 " BEGIN: vim-plug
