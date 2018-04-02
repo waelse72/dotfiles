@@ -60,6 +60,8 @@ map <Esc>[24~ <F12>
 
 map <F2> :tabe ~/.vim/NOTES.md<CR>
 map <F3> :so ~/.vimrc<CR>
+map <F9> :set formatoptions-=cro<CR>
+
 
 " Cycle through buffers
 nnoremap <Tab> :bnext<CR>

@@ -19,6 +19,8 @@ set wrap linebreak nolist                  " line wrapping
 set breakindent                            " indent wrapped lines
 "set omnifunc=syntaxcomplete#Complete
 
+" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -114,6 +116,22 @@ Plug 'https://github.com/tpope/vim-surround'
 " Comment functions so powerful—no comment necessary.
 Plug 'https://github.com/scrooloose/nerdcommenter'
 
+" supertab
+" ----------------
+" Supertab is a vim plugin which allows you to use <Tab> for all your insert
+" completion needs (:help ins-completion)
+" Plug 'ervandew/supertab'
+
+" utilsnips
+" -----------------
+" UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
+Plug 'https://github.com/SirVer/ultisnips'
+
+" vim-snippets
+" -------------
+" a collection of vim snippets for snipmate
+Plug 'https://github.com/honza/vim-snippets'
+
 
 " Valloric/YouCompleteMe
 " ----------------------
@@ -154,11 +172,6 @@ Plug 'https://github.com/pangloss/vim-javascript.git'
 "to the user.
 Plug 'vim-syntastic/syntastic'
 
-" Hydrangea theme
-" ---------------
-" This repository includes a color scheme file for Vim.
-Plug 'https://github.com/yuttie/hydrangea-vim.git'
-
 " itchyny/lightline.vim
 " -----------------------------------------------------------------------------
 " A light and configurable statusline/tabline plugin for Vim.
@@ -187,19 +200,12 @@ Plug 'https://github.com/hashivim/vim-terraform'
 " GO support for vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
-" utilsnips
-" -----------------
-" UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
-Plug 'https://github.com/SirVer/ultisnips'
-
-" vim-snippets
-" -------------
-" a collection of vim snippets for snipmate
-Plug 'https://github.com/honza/vim-snippets'
-
-
+" vim-solarized8
+" --------------
+" This is yet another Solarized theme for Vim. It places itself half way
+" between the original Solarized and the Flattened variant. It removes only
+" some of the bullshit. 
 Plug 'https://github.com/lifepillar/vim-solarized8.git'
-
 
 " end of initialization of plugin system
 call plug#end()
@@ -268,8 +274,6 @@ let g:pandoc#folding#fdc = 0
 let g:pandoc#syntax#conceal#urls = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ["ruby", "literatehaskell=lhaskell", "bash=sh"]
 
-
-
 " nerdcommenter
 " ---------------------------------------------------------------------------
 
@@ -285,7 +289,6 @@ let g:NERDTrimTrailingWhitespace = 1
 " ternjs/tern_for_vim
 " ---------------------------------------------------------------------------
 
-
 "enable keyboard shortcuts
 let g:tern_map_keys=1
 ""show argument hints
@@ -297,7 +300,8 @@ let g:tern_show_argument_hints='on_hold'
 " Enables syntax highlighting for JSDocs.
 let g:javascript_plugin_jsdoc = 1
 
-" Enables some additional syntax highlighting for NGDocs. Requires JSDoc plugin to be enabled as well.
+" Enables some additional syntax highlighting for NGDocs. Requires JSDoc
+" plugin to be enabled as well.
 let g:javascript_plugin_ngdoc = 1
 
 " Enables syntax highlighting for Flow.
@@ -308,7 +312,6 @@ let g:javascript_plugin_flow = 1
 
 " You can use g:used_javascript_libs to setup used libraries, ex:
 let g:used_javascript_libs = 'underscore,angularjs,angularui,handlebars,chai'
-
 
 " vim-syntastic/syntastic
 " ---------------------------------------------------------------------------
@@ -326,11 +329,42 @@ let g:syntastic_javascript_eslint_exe = 'npx eslint "$@"'
 
 
 " utilsnips
-" -----------
+" ----------------------------------------------------------------------------
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<Enter>"
+" let g:UltiSnipsExpandTrigger="<nop>"
+" let g:UltiSnipsJumpForwardTrigger="<nop>"
+" let g:UltiSnipsJumpBackwardTrigger="<nop>"
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<nop>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+" make YCM compatible with UltiSnips (using supertab)
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+" let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+" inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/MyUltiSnips', 'UltiSnips']
+
 
 
 " load my key mappings

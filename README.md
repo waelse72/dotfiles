@@ -10,6 +10,12 @@
 | vim  | `lD` or `ld$`| delete until end of line, exclusive of current letter |
 | vim  | `ys<obj>"`   | surround text object with "                           |
 
+## Vim Edits
+
+| command                     | description                                   |
+|-----------------------------|-----------------------------------------------|
+| `cf_`, `ct_`, `cF_`, `cT_`  | edit THIS_VARIABLE_HAS_UNDERSCORES            |
+
 ## Vim Movements
 
 | move                  | description                                         |
