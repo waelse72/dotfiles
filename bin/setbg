@@ -4,12 +4,12 @@ MODE=$1
 
 if [[ "$MODE" == "dark" ]]; then
   unset POWERLEVEL9K_COLOR_SCHEME
-  rm $HOME/.config/powerline/colorschemes/tmux/solarized.json
+  rm $HOME/.config/powerline/colorschemes/tmux/solarized.json >/dev/null 2>&1
   ln -s $HOME/.config/powerline/colorschemes/tmux/solarized_dark.json $HOME/.config/powerline/colorschemes/tmux/solarized.json >/dev/null 2>&1
   export VIM_SOLARIZED_MODE=dark
 elif [[ "$MODE" == "light" ]]; then
   export POWERLEVEL9K_COLOR_SCHEME='light'
-  rm $HOME/.config/powerline/colorschemes/tmux/solarized.json
+  rm $HOME/.config/powerline/colorschemes/tmux/solarized.json >/dev/null 2>&1
   ln -s $HOME/.config/powerline/colorschemes/tmux/solarized_light.json $HOME/.config/powerline/colorschemes/tmux/solarized.json >/dev/null 2>&1
   export VIM_SOLARIZED_MODE=light
 elif; then
