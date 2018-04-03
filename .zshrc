@@ -30,6 +30,8 @@ POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
 POWERLEVEL9K_NVM_BACKGROUND="clear"
 POWERLEVEL9K_NVM_FOREGROUND="249"
 POWERLEVEL9K_NVM_VISUAL_IDENTIFIER_COLOR="green"
+POWERLEVEL9K_AWS_BACKGROUND="clear"
+POWERLEVEL9K_AWS_FOREGROUND="249"
 POWERLEVEL9K_RVM_BACKGROUND="clear"
 POWERLEVEL9K_RVM_FOREGROUND="249"
 POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="red"
@@ -71,7 +73,7 @@ POWERLEVEL9K_SSH_BACKGROUND="clear"
 POWERLEVEL9K_SSH_FOREGROUND="blue"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S} \UE12E"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('status' 'os_icon' 'ssh' 'context' 'dir' 'newline' 'vcs')
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('nvm' 'load' 'ram_joined' 'battery' 'time')
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('aws' 'nvm' 'load' 'ram_joined' 'battery' 'time')
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -136,7 +138,7 @@ source $ZSH/oh-my-zsh.sh
 
 ENABLE_POWERLINE=0
 
-
+export AWS_DEFAULT_PROFILE=default
 
 
 # You may need to manually set your language environment
