@@ -25,6 +25,7 @@ FILES="
 .vim/yaml.vim
 .vim/NOTES.md
 .vim/autoload/plug.vim
+.vim/autoload/togglebg.vim
 .vim/MyUltiSnips
 .tmux.conf
 .zshrc

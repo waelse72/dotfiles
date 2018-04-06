@@ -136,6 +136,8 @@ source $ZSH/oh-my-zsh.sh
 
 ENABLE_POWERLINE=0
 
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$(go env GOPATH)/bin
 
 
 

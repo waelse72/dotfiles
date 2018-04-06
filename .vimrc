@@ -371,6 +371,5 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/MyUltiSnips', 'UltiSnips']
 
 
-
 " load my key mappings
 source ~/.dotfiles/.vim/my-mappings.vim
