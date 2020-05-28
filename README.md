@@ -40,6 +40,11 @@
 
 ... more to come
 
+## Vim Auto-Completion
+
+The config uses `YouCompleteMe` and `ultisnips` for providing auto completion.
+**Please note that snippets which are triggered by a regular expression will not show up
+in the YouCompleteMe window.**
 
 ## Install Instructions
 

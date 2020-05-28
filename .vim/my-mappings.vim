@@ -1,3 +1,32 @@
+" new mappings
+" -----------------------------
+
+" disble all formatting, insert blank line, enable formatting end return to normal mode
+nnoremap ,O :let old_formatoptions = &formatoptions<CR><Bar>:set formatoptions=t<CR><Bar>O<Esc><Bar>:let &formatoptions = old_formatoptions<CR>
+nnoremap ,o :let old_formatoptions = &formatoptions<CR><Bar>:set formatoptions=t<CR><Bar>o<Esc><Bar>:let &formatoptions = old_formatoptions<CR>
+nnoremap ,o o<Esc>
+nnoremap ,t <C-]>
+nnoremap ,p :pc<CR>
+" close preview window
+" close all stuff
+"nnoremap ,c :pc|bd<CR>
+
+" ctrl-c 
+"noremap <C-c> mwI<C-r>=g:comment_char<CR><Esc>`wll
+
+" delete buffer but not window
+nmap ,d :b#<bar>bd#<CR>
+
+" quick comment lines: from the current line until the next blank line
+nnoremap ,c :.,/^$/-1 s/^/# /g<CR>
+nnoremap ,cf :?^.*def?,/\(^\s*def\<Bar>^\s*class\)/-1 s/^/# /g<CR>
+
+nnoremap ,pd :.,/^\s*>>>/-1 s/^\s*/    >>> /g<CR>
+noremap ,pu mwI<C-r>=g:python_pudb_trace<CR><Esc>`wll
+
+" old mappings
+" -----------------------------
+
 let mapleader = "_"
 " change inside parentheses
 map <leader>cp ci(
@@ -8,13 +37,14 @@ map <leader>cs ci[
 " surround word with double quotes
 map <leader>mp bi"<Esc>ea"<Esc>
 
-
+nnoremap <Leader>f :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 nnoremap oo o<Esc>k
 nnoremap OO O<Esc>j
 " press Ap to paste a whitespace and the contents of the register at the end of the line
 nnoremap <Leader>p A <esc>p
-" insert space at cursor
+
 nnoremap <Leader>s i <esc>
+" insert space at cursor
 nnoremap <Leader><Space> i <esc>
 
 " Remove all trailing whitespace by pressing _w
@@ -62,10 +92,18 @@ map <F2> :tabe ~/.vim/NOTES.md<CR>
 map <F3> :so ~/.vimrc<CR>
 map <F9> :set formatoptions-=cro<CR>
 
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR> " t Ctrl+n
+nmap <silent> t<C-f> :TestFile<CR>    " t Ctrl+f
+nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
+nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
+nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
+
+
 
 " Cycle through buffers
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+" nnoremap <Tab> :bnext<CR>
+"nnoremap <S-Tab> :bprevious<CR>
 
 " append line at the end of the file
 nmap  Go

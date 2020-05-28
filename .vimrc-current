@@ -5,7 +5,6 @@ set visualbell                             " don't beep
 set noerrorbells                           " don't beep
 set novb                                   " no flashing of screen
 set nocompatible
-set history=10000                           " limit history, must be after nocompatible
 set undofile                               " keep a undo file
 set undodir=~/.vim/undo
 
@@ -17,32 +16,11 @@ set expandtab                              " expand tabs to spaces
 set tabstop=2
 set shiftwidth=2
 set shiftround
-set path=.,~/,/usr/local/include,/usr/include
 syntax enable
 filetype plugin indent on
 set wrap linebreak nolist                  " line wrapping
 set breakindent                            " indent wrapped lines
-
-set spell spelllang=en_us
-
-set maxmempattern=10000
-
-
 "set omnifunc=syntaxcomplete#Complete
-
-" The time in milliseconds that is waited for a key code or mapped key
-" sequence to complete (see also ttimeoutlen)
-" WARNING! Changing this may have unexpected results if you are not typing
-" fast! DEFAULT is 1000
-" set timeoutlen=450
-
-" Insert and command-line mode Caps Lock.
-" Lock search keymap to be the same as insert mode.
-set imsearch=-1
-" Load the keymap that acts like capslock.
-set keymap=insert-only_capslock
-" Turn it off by default.
-set iminsert=0
 
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -58,38 +36,7 @@ autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType typescript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType docker-compose setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab textwidth=79 expandtab autoindent fileformat=unix
-"autocmd FileType python-doctest setlocal ts=4 sts=4 sw=4 expandtab textwidth=79 expandtab autoindent fileformat=unix commentstring=\>\>\>\ %s
-autocmd FileType python-doctest setlocal ts=4 sts=4 sw=4 expandtab textwidth=79 expandtab autoindent fileformat=unix commentstring=\"\ %s
-autocmd BufNewFile,BufRead *.py set tabstop=4 sw=4 sts=4 textwidth=79 expandtab autoindent fileformat=unix
 
-" Editing reStructuredText in Vim
-" ----------------------------------
-" indentation settings
-autocmd FileType rst setlocal expandtab shiftwidth=3 tabstop=3
-" show a ruler at the right hand margin
-autocmd FileType rst setlocal colorcolumn=120
-" for wrapping text
-autocmd FileType rst setlocal textwidth=118
-" set spelling
-autocmd FileType rst setlocal spell spelllang=en_us
-" enable syntax highlighting
-" autocmd FileType rst syntax on
-" all files use utf-8 encoding
-autocmd FileType rst setlocal encoding=utf-8
-
-
-
-
-" Control C, which is NEVER used. Now comments out lines!
-autocmd BufNewFile,BufRead *.py let python_pudb_trace = "from pudb import set_trace; set_trace()"
-autocmd BufNewFile,BufRead *.py let comment_char = "#"
-
-" Kill the capslock when leaving insert mode.
-autocmd InsertLeave * set iminsert=0
-
-" remove trailing spces
-autocmd FileType c,cpp,java,python,javascript,zsh,sh,yaml,json,rst,typescript,html,docker-compose autocmd BufWritePre <buffer> %s/\s\+$//e
 " reset cursor when leaving vim
 " autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
 
@@ -126,8 +73,6 @@ else
   let b:solarized_mode = "dark"
 endif
 
-
-
 " ---------------------------------------------------------------------------
 " BEGIN: vim-plug
 " ---------------------------------------------------------------------------
@@ -149,11 +94,6 @@ call plug#begin('~/.vim/plugged')
 " editing.
 Plug 'https://github.com/leafgarland/typescript-vim.git'
 
-" vim-pydocstring
-" ---------------
-" vim-pydocstring is a generator for Python docstrings and is capable of automatically
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
-
 " ekalinin/Dockerfile.vim
 " -----------------------
 " Vim syntax file for Docker's Dockerfile and snippets for snipMate.
@@ -166,11 +106,6 @@ Plug 'https://github.com/ekalinin/Dockerfile.vim.git'
 " files. SyntaxComplete also works well on all supported languages.
 Plug 'https://github.com/othree/javascript-libraries-syntax.vim'
 
-" Riv: Notes and wiki in rst
-" --------------
-Plug 'https://github.com/gu-fan/riv.vim'
-" enable inline python rst
-let g:riv_python_rst_hl=1
 " chr4/nginx.vim
 " --------------
 " Vim plugin for Nginx
@@ -287,7 +222,7 @@ Plug 'https://github.com/hashivim/vim-terraform'
 " vim-go
 " ---------------------------
 " GO support for vim
-"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " vim-solarized8
 " --------------
@@ -295,14 +230,6 @@ Plug 'https://github.com/hashivim/vim-terraform'
 " between the original Solarized and the Flattened variant. It removes only
 " some of the bullshit. 
 Plug 'https://github.com/lifepillar/vim-solarized8.git'
-
-"Neomake is a plugin for Vim/Neovim to asynchronously run programs.
-
-" You can use it instead of the built-in :make command (since it can pick 
-" up your 'makeprg' setting), but its focus is on providing an extra 
-" layer of makers based on the current file (type) or project. Its origin is 
-" a proof-of-concept for Syntastic to be asynchronous.
-Plug 'neomake/neomake'
 
 " end of initialization of plugin system
 call plug#end()
@@ -453,7 +380,6 @@ let g:jsdoc_allow_input_prompt = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_mode="passive"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -462,11 +388,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npx eslint "$@"'
 
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_mode_map = {
-     \ "mode": "passive",
-     \ "active_filetypes": ["ruby", "php"],
-     \ "passive_filetypes": ["python", "java"] }
 
 " utilsnips / YouCompleteMe
 " ----------------------------------------------------------------------------
@@ -489,14 +410,6 @@ function ExpandSnippetOrCarriageReturn()
 endfunction
 inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>"
 
-
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-
 " https://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -506,30 +419,12 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " better key bindings for UltiSnipsExpandTrigger
 " let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsExpandTrigger = "<nop>"
-"let g:UltiSnipsJumpForwardTrigger = "<tab>"
-"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/MyUltiSnips', 'UltiSnips']
 
 " let g:UltiSnipsUsePythonVersion = 2
-
-" 
-" Neomake
-" ------------------------
-" Run linter on write
-" autocmd! BufWritePost * Neomake
-
-" Check code as python3 by default
-let g:neomake_python_python_maker = neomake#makers#ft#python#python()
-let g:neomake_python_flake8_maker = neomake#makers#ft#python#flake8()
-let g:neomake_python_python_maker.exe = 'python3 -m py_compile'
-let g:neomake_python_flake8_maker.exe = 'python3 -m flake8'
-
-" Disable error messages inside the buffer, next to the problematic line
-let g:neomake_virtualtext_current_error = 0
-
-
-
 
 " load my key mappings
 source ~/.dotfiles/.vim/my-mappings.vim

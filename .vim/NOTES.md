@@ -1,16 +1,34 @@
 '' - jump to previous position
-ci' - edit text surrounded by '
 
 :%normal 2x - delete first two characters for each line (%: match all lines; normal: execute normal mode commands typed on the cmd line; 2x: delete 2 chars)
 
 :mes - show vim messages
 
-## append space and text at the end of the line
+# Things to remember
+:gf go file, try with python
+
+## a range for the last changed lines: :'[,'.
+
+'[ start range
+'. last changed position
+
+example apply regex: :'[,'. s/^\"//e<CR>
+
+
+
+# Short HOWTOs
+
+
+## append space and text in register at the end of the line
 
 just hit 1
 `nnoremap 1 A <esc>p`
 
-## delete untile end of line, exclusive of current letter 
+## edit text surrounded by ': ci'
+
+## close preview window (YouCompleteMe): :pc
+
+## delete until end of line, exclusive of current letter 
 (try after exiting insert mode)
 
 `lD` or `ld$`

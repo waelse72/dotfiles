@@ -4,24 +4,43 @@ snippet clv
 console.log('$1: ', ${1});
 endsnippet
 
-snippet reqlo
-_ = require('lodash')
-endsnippet
+snippet "module" "module.exports = () => {"
+module.exports = ($1) => {
 
-snippet "^const\s+_" "require lodash" r
-const _ = require('lodash')
-endsnippet
-
-snippet "\s*be" "require lodash" !r
-const _ = require('lodash')
-endsnippet
-
-
-snippet "func" "($1, $2) => {" 
-($1, $2) => {
 
 };
 endsnippet
+# snippet "be(gin)?( (\S+))?" "begin{} / end{}" br
+# \begin{${1:`!p
+# snip.rv = match.group(3) if match.group(2) is not None else "something"`}}
+# ${2:${VISUAL}}
+# \end{$1}$0
+# endsnippet
+#
+#
+# snippet "chap?t?e?r?" "Latex chapter" rb
+# \section{chapter}
+# $0
+# \end{chapter}
+# endsnippet
+
+snippet "^const\s+_" "require lodash" rb
+const _ = require('lodash');
+endsnippet
+
+snippet "= \(" "($1, $2) => {"  r
+= ($1, $2) => {
+
+};
+endsnippet
+
+snippet "afunc1" "($1) => {"  
+($1) => {
+
+$0
+};
+endsnippet
+
 
 snippet "return n" "return new Promise((resolve, reject) =>"
 return new Promise((resolve, reject) => {
@@ -33,15 +52,67 @@ endsnippet
 #
 # hapijs lab
 #
+snippet "labtest" "create a hapijs lab test file"
+'use strict';
+
+const Code = require('code');
+const Lab = require('lab');
+const lab = exports.lab = Lab.script();
+const Sinon = require('sinon');
+
+const describe = lab.describe;
+const beforeEach = lab.beforeEach;
+const afterEach = lab.afterEach;
+const it = lab.it;
+const experiment = lab.experiment;
+const expect = Code.expect;
+
+describe('$1', () => {
+
+		let sandbox;
+
+		beforeEach((options) => {
+
+				sandbox = Sinon.sandbox.create();
+		});
+
+		afterEach(() => {
+
+				sandbox.restore();
+		});
+
+});
+endsnippet
+
+snippet experiment "experiment('your experiment', () =>"
+experiment('$1', () => {
+
+});
+endsnippet
+
 
 snippet describe "describe('your component', () =>"
 describe('$1', () => {
-	
+
 });
 endsnippet
 
 snippet it "hapijs lab it"
 it('should $1', () => {
-	
+
+});
+endsnippet
+
+snippet before "hapijs lab before"
+before(() => {
+
+$0
+});
+endsnippet
+
+snippet after "hapijs lab after"
+after(() => {
+
+$0
 });
 endsnippet

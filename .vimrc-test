@@ -1,0 +1,158 @@
+" General
+" always show status line
+set laststatus=2
+set visualbell                             " don't beep
+set noerrorbells                           " don't beep
+set novb                                   " no flashing of screen
+set nocompatible
+set undofile                               " keep a undo file
+set undodir=~/.vim/undo
+
+" Editing
+set expandtab                              " expand tabs to spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+syntax enable
+filetype plugin indent on
+set wrap linebreak nolist                  " line wrapping
+set breakindent                            " indent wrapped lines
+"set omnifunc=syntaxcomplete#Complete
+
+" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType zsh setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType terraform setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType typescript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType docker-compose setlocal ts=2 sts=2 sw=2 expandtab
+
+
+" Spelling
+autocmd FileType gitcommit setlocal spell        " spell check for git commit messages
+autocmd BufRead,BufNewFile *.md setlocal spell   " spell check for markdown files
+set complete+=kspell                             " autocomplete words
+
+" Appearance
+
+" show special characters
+set showbreak=↪\
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set list
+
+set colorcolumn=80                         " highlight 80 char column
+
+" color setup
+let b:solarized_scheme_type = "solarized8"
+if $VIM_SOLARIZED_MODE == "light"
+  let b:solarized_mode = "light"
+elseif $VIM_SOLARIZED_MODE == "dark"
+  let b:solarized_mode = "dark"
+else 
+  let b:solarized_mode = "dark"
+endif
+
+" ---------------------------------------------------------------------------
+" BEGIN: vim-plug
+" ---------------------------------------------------------------------------
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+
+" utilsnips
+" -----------------
+" UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
+Plug 'https://github.com/SirVer/ultisnips'
+
+" vim-snippets
+" -------------
+" a collection of vim snippets for snipmate
+Plug 'https://github.com/honza/vim-snippets'
+
+
+" end of initialization of plugin system
+call plug#end()
+
+" ---------------------------------------------------------------------------
+" END: vim-plug
+" ---------------------------------------------------------------------------
+
+" colors
+" ---------------------------------------------------------------------------
+let g:solarized_visibility="low" " can also be set to normal or high
+if b:solarized_scheme_type == "solarized8"
+  let &t_Co=256
+  let g:solarized_use16 = 1
+  let g:solarized_statusline = "normal"
+  if $OSX
+    "fix for iterm2 greyish background
+    let g:solarized_termtrans = 1
+  endif
+elseif b:solarized_scheme_type == "solarized"
+
+  let g:solarized_termcolors=16
+endif
+
+if b:solarized_mode == "dark"
+  set background=dark
+elseif b:solarized_mode == "light"
+  set background=light
+endif
+
+if b:solarized_scheme_type == "solarized8"
+  colorscheme solarized8
+elseif b:solarized_scheme_type == "solarized"
+  colorscheme solarized
+endif
+
+call togglebg#map("<F5>")
+
+" Enable italic text
+" see: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#comment-1818205274
+" highlight Comment cterm=italic
+
+" fix colors of QuickFixLine (type :highlight to see all color mappings)
+"highlight QuickFixLine term=reverse cterm=reverse ctermfg=0 ctermbg=226 guifg=Black guibg=Yellow
+if $OSX
+  highlight QuickFixLine term=bold cterm=bold ctermfg=1 guifg=Red 
+endif
+
+" lightline settings
+" ---------------------------------------------------------------------------
+
+let g:lightline = {
+      \ 'colorscheme': 'quack',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator':    { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ }
+
+
+" utilsnips
+" ----------------------------------------------------------------------------
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/MyUltiSnips', 'UltiSnips']
+
+" let g:UltiSnipsUsePythonVersion = 2
+
+" load my key mappings
+source ~/.dotfiles/.vim/my-mappings.vim

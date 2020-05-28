@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_COLOR_SCHEME=${POWERLEVEL9K_COLOR_SCHEME:-dark} 
+POWERLEVEL9K_COLOR_SCHEME=${POWERLEVEL9K_COLOR_SCHEME:-dark}
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir newline vcs)
@@ -139,7 +139,8 @@ ENABLE_POWERLINE=0
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$(go env GOPATH)/bin
 
-
+export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -171,6 +172,7 @@ export LANG=en_US.UTF-8
 # BASE16_SHELL=$HOME/.config/base16-shell/
 # [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
+export PYTHONPATH="$PYTHONPATH:$HOME/dev/python"
 
 if [[ "$OSX" == "1" ]]
 then
